@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,7 +71,8 @@ public class PatientRecordGUI extends JFrame {
                 break;
             case "Complaints":
                 filteredRecords = records.stream()
-                        .filter(record -> record.getChiefComplaint().equalsIgnoreCase(query))
+                        .filter(record -> Arrays.stream(record.getChiefComplaint().split(","))
+                                .anyMatch(complaint -> complaint.trim().equalsIgnoreCase(query)))
                         .collect(Collectors.toList());
                 break;
             case "Region":
