@@ -1,4 +1,4 @@
-package org.example;
+package org.example.hadoop;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,12 +12,12 @@ public class PatientRecordClassifier {
 
     // Method to classify records by symptom
     public Map<String, List<PatientRecord>> classifyByComplaints(List<PatientRecord> records) {
-        return classify(records, PatientRecord::getChiefComplaint);
+        return classify(records, PatientRecord::getHistoryOfParentIllness);
     }
 
     // Method to classify records by region
     public Map<String, List<PatientRecord>> classifyByRegion(List<PatientRecord> records) {
-        return classify(records, PatientRecord::getRegion);
+        return classify(records, PatientRecord::getNhsTrustRegion);
     }
 
     // Generic method to classify records based on a key extractor

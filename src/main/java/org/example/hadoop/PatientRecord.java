@@ -1,4 +1,4 @@
-package org.example;
+package org.example.hadoop;
 
 import java.util.Objects;
 
@@ -18,10 +18,10 @@ public class PatientRecord {
     private String physicalExamination;
     private String assessmentAndPlan;
     private String nhsTrustRegion;
-    private String region;
+
 
     // Constructor to initialize a patient record
-    public PatientRecord(String patientId, String name, String age, String gender, String dateOfAdmission, String medicalRecord, String medicalHistory, String chiefComplaint, String historyOfParentIllness, String physicalExamination, String assessmentAndPlan, String nhsTrustRegion, String region) {
+    public PatientRecord(String patientId, String name, String age, String gender, String dateOfAdmission, String medicalRecord, String medicalHistory, String chiefComplaint, String historyOfParentIllness, String physicalExamination, String assessmentAndPlan, String nhsTrustRegion) {
         this.patientId = patientId;
         this.name = name;
         this.age = age;
@@ -34,7 +34,7 @@ public class PatientRecord {
         this.physicalExamination = physicalExamination;
         this.assessmentAndPlan = assessmentAndPlan;
         this.nhsTrustRegion = nhsTrustRegion;
-        this.region = region;
+
 
     }
 
@@ -134,18 +134,12 @@ public class PatientRecord {
         this.nhsTrustRegion = nhsTrustRegion;
     }
 
-    public String getRegion() {
-        return region;
-    }
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
 
     // Override toString method for displaying the patient record
     @Override
     public String toString() {
-        return STR."Patient ID: \{patientId}, Name: \{name}, Age: \{age}, Gender: \{gender}, Medical Record Number: \{medicalRecord}, Medical History: \{medicalHistory} ,Chief Complaint: \{chiefComplaint}, History_of_Present_Illness:\{historyOfParentIllness}, Physical Examination: \{physicalExamination}, Assesment and Plan: \{assessmentAndPlan}, NHS Trust Region: \{nhsTrustRegion} Region: \{region}";
+        return STR."Patient ID: \{patientId}, Name: \{name}, Age: \{age}, Gender: \{gender},Date of Admission: \{dateOfAdmission} ,  Medical Record Number: \{ medicalHistory}, Medical History: \{chiefComplaint} ,Chief Complaint: \{historyOfParentIllness}, History_of_Present_Illness:\{physicalExamination}, Physical Examination: \{assessmentAndPlan}, Assesment and Plan: \{nhsTrustRegion}, NHS Trust Region: \{nhsTrustRegion}";
     }
 
     // Override equals and hashCode for proper comparison and hashing
@@ -154,11 +148,11 @@ public class PatientRecord {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PatientRecord that = (PatientRecord) o;
-        return Objects.equals(patientId, that.patientId) && Objects.equals(chiefComplaint, that.chiefComplaint) && Objects.equals(region, that.region) && Objects.equals(physicalExamination, that.physicalExamination) && Objects.equals(assessmentAndPlan, that.assessmentAndPlan);
+        return Objects.equals(patientId, that.patientId) && Objects.equals(chiefComplaint, that.chiefComplaint)  && Objects.equals(physicalExamination, that.physicalExamination) && Objects.equals(assessmentAndPlan, that.assessmentAndPlan);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, chiefComplaint, region, physicalExamination, assessmentAndPlan);
+        return Objects.hash(patientId, chiefComplaint, physicalExamination, assessmentAndPlan);
     }
 }
